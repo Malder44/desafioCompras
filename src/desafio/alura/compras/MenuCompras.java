@@ -19,21 +19,20 @@ public class MenuCompras {
             System.out.println("Compra realizada!");
         } else {
             System.out.println("Saldo insuficiente!");
-            exibeCompras();
         }
     }
 
     public void exibeCompras() {
         System.out.println("COMPRAS REALIZADAS:");
         System.out.println("\n");
-        for(Produto produtos : listaDeCompras) {
-            System.out.println(produtos.getNome() + " - " + produtos.getValor());
+        for(Produto produto : listaDeCompras) {
+            System.out.println(produto.getNome() + " - " + produto.getValor());
         }
         System.out.println("\n");
         System.out.println("Saldo do cartão: " + cartao.getLimite());
     }
 
     public boolean verificaPodeComprar() {
-        return cartao.getLimite() == 0;
+        return cartao.getLimite() != 0;
     }
 }
