@@ -1,6 +1,7 @@
 package desafio.alura.compras;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MenuCompras {
@@ -23,16 +24,23 @@ public class MenuCompras {
     }
 
     public void exibeCompras() {
-        System.out.println("COMPRAS REALIZADAS:");
-        System.out.println("\n");
-        for(Produto produto : listaDeCompras) {
-            System.out.println(produto.getNome() + " - " + produto.getValor());
+        if(listaDeCompras.size() > 0) {
+            ProdutoNomeComparator comparador = new ProdutoNomeComparator();
+            System.out.println("COMPRAS REALIZADAS:");
+            System.out.println("\n");
+            Collections.sort(listaDeCompras, comparador);
+            Collections.sort(listaDeCompras);
+            for(Produto produto : listaDeCompras) {
+                System.out.println(produto.getNome() + " - " + produto.getValor());
+            }
+            System.out.println("\n");
+            System.out.println("Saldo do cartão: " + cartao.getLimite());
+        } else {
+            System.out.println("\nNenhuma compra foi realizada.");
         }
-        System.out.println("\n");
-        System.out.println("Saldo do cartão: " + cartao.getLimite());
     }
 
-    public boolean verificaPodeComprar() {
+    public boolean verificaLimite() {
         return cartao.getLimite() != 0;
     }
 }
