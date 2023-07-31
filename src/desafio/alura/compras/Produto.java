@@ -18,6 +18,11 @@ public class Produto implements Comparable<Produto>{
     }
 
     @Override
+    public String toString() {
+        return this.nome + " - R$ " + this.valor;
+    }
+
+    @Override
     public int compareTo(Produto outroProduto) {
         if(this.valor < outroProduto.valor) {
             return -1;

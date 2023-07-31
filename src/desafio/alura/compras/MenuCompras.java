@@ -30,9 +30,12 @@ public class MenuCompras {
             System.out.println("\n");
             Collections.sort(listaDeCompras, comparador);
             Collections.sort(listaDeCompras);
+            /*
             for(Produto produto : listaDeCompras) {
-                System.out.println(produto.getNome() + " - " + produto.getValor());
+                System.out.println(produto);
             }
+            */
+            listaDeCompras.forEach(produto -> System.out.println(produto)); //mesmo que o código acima
             System.out.println("\n");
             System.out.println("Saldo do cartão: " + cartao.getLimite());
         } else {
