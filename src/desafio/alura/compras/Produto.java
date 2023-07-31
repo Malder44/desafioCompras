@@ -1,6 +1,6 @@
 package desafio.alura.compras;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
     private String nome;
     private double valor;
 
@@ -15,5 +15,15 @@ public class Produto {
 
     public double getValor() {
         return valor;
+    }
+
+    @Override
+    public int compareTo(Produto outroProduto) {
+        if(this.valor < outroProduto.valor) {
+            return -1;
+        } else if(this.valor > outroProduto.valor) {
+            return 1;
+        }
+        return 0;
     }
 }
