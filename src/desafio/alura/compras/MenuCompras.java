@@ -44,6 +44,6 @@ public class MenuCompras {
     }
 
     public boolean verificaLimite() {
-        return cartao.getLimite() != 0;
+        return cartao.getLimite() > 0;
     }
 }
